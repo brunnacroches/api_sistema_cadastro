@@ -6,9 +6,19 @@ class ActionBuscarProfissao:
         self.bd_repositorio = BancoDeDados()
 
     def buscar_pessoas_por_profissao(self, profissao:str)->list:
-        pessoas_com_profissao = []
-        pessoas = self.bd_repositorio.buscar_pessoas()
+        pessoas = self.bd_repositorio.buscar_pessoas_por_profissao(profissao)
+
+        formatted_pessoas_info = []
         for pessoa in pessoas:
-            if pessoa.profissao == profissao:
-                pessoas_com_profissao.append(pessoa)
-        return pessoas_com_profissao 
+            formatted_pessoas_info.append({
+                "nome": pessoa.nome,
+                "profissao": pessoa.profissao
+            })
+        return formatted_pessoas_info
+
+        # ! pessoas_com_profissao = []
+        # ! pessoas = self.bd_repositorio.buscar_pessoas()
+        # ! for pessoa in pessoas:
+        # !     if pessoa.profissao == profissao:
+        # !         pessoas_com_profissao.append(pessoa)
+        # ! return pessoas_com_profissao 

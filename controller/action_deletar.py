@@ -5,8 +5,9 @@ class ActionDelete:
     def __init__(self):
         self.bd_repositorio = BancoDeDados()
 
-    def deletar_pessoa_por_nome(self, nome:str):
-        self.bd_repositorio.deletar_pessoa(nome)
+    def deletar_pessoa_por_nome(self, delete:str):
+        # ! self.bd_repositorio.deletar_pessoa(nome)
+        self.bd_repositorio.deletar_pessoa_por_nome(delete)
 
 
 # Ele instancia a classe BancoDeDados dentro da classe 
